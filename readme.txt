@@ -51,7 +51,7 @@ If you find this plugin helpful and would like to support its development, consi
 
 == License ==
 
-This plugin is released under the GPLv2 or later license. See http://www.gnu.org/licenses/gpl-2.0.html for more information.
+This plugin is released under the GPLv3 or later license. See http://www.gnu.org/licenses/gpl-3.0.html for more information.
 
 == Credits ==
 
