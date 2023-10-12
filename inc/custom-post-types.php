@@ -81,14 +81,44 @@ function digital_garden_register_note_tag_taxonomy() {
 	$args = array(
 		'labels'            => $labels,
 		'public'            => true,
-		'hierarchical'      => false, // Change to true if you want hierarchical tags
+		'hierarchical'      => false,
 		'show_ui'           => true,
-		'show_in_rest'      => true, // Enable for Gutenberg support
+		'show_in_rest'      => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'note-tag' ), // Change the slug as desired
+		'rewrite'           => array( 'slug' => 'note-tag' ),
 	);
 
 	register_taxonomy( 'note_tag', 'digital_garden_note', $args );
 }
 add_action( 'init', 'digital_garden_register_note_tag_taxonomy', 0 );
+
+function digital_garden_register_note_completeness_taxonomy() {
+	$labels = array(
+		'name'              => _x( 'Note Completeness', 'taxonomy general name', 'digital-garden' ),
+		'singular_name'     => _x( 'Note Completeness', 'taxonomy singular name', 'digital-garden' ),
+		'search_items'      => __( 'Search Note Completeness', 'digital-garden' ),
+		'all_items'         => __( 'All Note Completeness', 'digital-garden' ),
+		'parent_item'       => __( 'Parent Note Completeness', 'digital-garden' ),
+		'parent_item_colon' => __( 'Parent Note Completeness:', 'digital-garden' ),
+		'edit_item'         => __( 'Edit Note Completeness', 'digital-garden' ),
+		'update_item'       => __( 'Update Note Completeness', 'digital-garden' ),
+		'add_new_item'      => __( 'Add New Note Completeness', 'digital-garden' ),
+		'new_item_name'     => __( 'New Note Completeness Name', 'digital-garden' ),
+		'menu_name'         => __( 'Note Completeness', 'digital-garden' ),
+	);
+
+	$args = array(
+		'labels'            => $labels,
+		'public'            => true,
+		'hierarchical'      => false,
+		'show_ui'           => true,
+		'show_in_rest'      => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'note-completeness' ),
+	);
+
+	register_taxonomy( 'note_completeness', 'digital_garden_note', $args );
+}
+add_action( 'init', 'digital_garden_register_note_completeness_taxonomy', 0 );
