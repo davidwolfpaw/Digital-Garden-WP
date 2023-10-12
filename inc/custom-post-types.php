@@ -62,3 +62,33 @@ function digital_garden_register_note_post_type() {
 	register_post_type( 'digital_garden_note', $args );
 }
 add_action( 'init', 'digital_garden_register_note_post_type', 0 );
+
+function digital_garden_register_note_tag_taxonomy() {
+	$labels = array(
+		'name'              => _x( 'Note Tags', 'taxonomy general name', 'digital-garden' ),
+		'singular_name'     => _x( 'Note Tag', 'taxonomy singular name', 'digital-garden' ),
+		'search_items'      => __( 'Search Note Tags', 'digital-garden' ),
+		'all_items'         => __( 'All Note Tags', 'digital-garden' ),
+		'parent_item'       => __( 'Parent Note Tag', 'digital-garden' ),
+		'parent_item_colon' => __( 'Parent Note Tag:', 'digital-garden' ),
+		'edit_item'         => __( 'Edit Note Tag', 'digital-garden' ),
+		'update_item'       => __( 'Update Note Tag', 'digital-garden' ),
+		'add_new_item'      => __( 'Add New Note Tag', 'digital-garden' ),
+		'new_item_name'     => __( 'New Note Tag Name', 'digital-garden' ),
+		'menu_name'         => __( 'Note Tags', 'digital-garden' ),
+	);
+
+	$args = array(
+		'labels'            => $labels,
+		'public'            => true,
+		'hierarchical'      => false, // Change to true if you want hierarchical tags
+		'show_ui'           => true,
+		'show_in_rest'      => true, // Enable for Gutenberg support
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'note-tag' ), // Change the slug as desired
+	);
+
+	register_taxonomy( 'note_tag', 'digital_garden_note', $args );
+}
+add_action( 'init', 'digital_garden_register_note_tag_taxonomy', 0 );
