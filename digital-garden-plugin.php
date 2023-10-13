@@ -14,6 +14,7 @@ define( 'DIGITAL_GARDEN_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 // Include necessary files.
 require_once DIGITAL_GARDEN_PLUGIN_DIR . 'inc/custom-post-types.php';
 require_once DIGITAL_GARDEN_PLUGIN_DIR . 'inc/activation-tasks.php';
+require_once DIGITAL_GARDEN_PLUGIN_DIR . 'inc/functions.php';
 
 // Hook activation and deactivation functions.
 register_activation_hook( __FILE__, 'digital_garden_plugin_activate' );
