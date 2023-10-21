@@ -58,6 +58,14 @@ function digital_garden_register_note_post_type() {
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
+		'template'            => array(
+			array(
+				'core/paragraph',
+				array(
+					'placeholder' => 'Grow your garden 🏡',
+				),
+			),
+		),
 	);
 	register_post_type( 'digital_garden_note', $args );
 }
